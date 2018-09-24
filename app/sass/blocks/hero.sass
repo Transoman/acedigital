@@ -11,3 +11,25 @@
       line-height: 1.4
       span
         font-size: 72px
+
+@include media-breakpoint-down(lg)
+  .hero
+    padding-top: 200px
+
+@include media-breakpoint-down(md)
+  .hero
+    padding-bottom: 130px
+    &__content
+      h1
+        font-size: 32px
+        span
+          font-size: 48px
+
+@include media-breakpoint-down(sm)
+  .hero
+    padding-top: 130px
+    &__content
+      h1
+        font-size: 28px
+        span
+          font-size: 32px

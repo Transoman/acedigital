@@ -25,3 +25,12 @@
     font-weight: 500
     color: $selective-yellow
     text-transform: uppercase
+
+@include media-breakpoint-down(sm)
+  .phone
+    &__left
+      display: none
+    &__right
+      margin-left: 0
+    &__link
+      font-size: 18px

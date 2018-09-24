@@ -20,3 +20,20 @@
     color: rgba(#fff, 0.6)
   &__phone
     margin-right: 60px
+    margin-left: auto
+
+@include media-breakpoint-down(md)
+  .header
+    &__descr
+      display: none
+
+@include media-breakpoint-down(sm)
+  .header
+    padding-top: 10px
+    &__phone
+      margin-right: 30px
+
+@include media-breakpoint-down(xs)
+  .header
+    &__phone
+      display: none
