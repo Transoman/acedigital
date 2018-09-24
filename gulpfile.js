@@ -66,7 +66,7 @@ gulp.task('styles', function() {
 gulp.task('js', function() {
   return gulp.src('app/js/common.js')
   .pipe(gp.plumber())
-  // .pipe(gp.uglify())
+  .pipe(gp.uglify())
   .pipe(gp.rename({suffix: '.min'}))
   .pipe(gulp.dest('build/js'))
   .pipe(browserSync.stream());
@@ -81,6 +81,20 @@ gulp.task('script', function() {
   .pipe(gp.concat('script.js'))
   // .pipe(gp.uglify())
   .pipe(gulp.dest('build/js/'));
+});
+
+gulp.task('fonts', function() {
+  return gulp.src('app/fonts/**/*')
+  .pipe(gulp.dest('build/fonts'))
+});
+
+gulp.task('images', function() {
+  return gulp.src('app/img/**/*')
+    // .pipe(imagemin([
+    //  imagemin.optipng({optimizationLevel: 3}),
+    //  imagemin.jpegtran({progressive: true})
+    // ]))
+    .pipe(gulp.dest('build/img'))
 });
 
 gulp.task('svg', function() {
@@ -106,7 +120,7 @@ gulp.task('svg', function() {
       }
     }
   }))
-  .pipe(gulp.dest('build/img'));
+  .pipe(gulp.dest('app/templates'));
 });
 
 // gulp.task('symbols', function() {
@@ -132,7 +146,9 @@ gulp.task('svg', function() {
 
 gulp.task('watch', function() {
   gulp.watch('app/sass/**/*.sass', ['styles']);
-  gulp.watch('app/*.html', ['html']);
+  gulp.watch('app/**/*.html', ['html']);
+  gulp.watch('app/fonts/**/*', ['fonts']);
+  gulp.watch('app/img/**/*', ['images']);
   gulp.watch('app/js/common.js', ['js']);
 });
 
@@ -161,4 +177,4 @@ gulp.task('build', ['clean', 'styles', 'svg'], function(){
 });
 
 
-gulp.task('default', ['html', 'styles', 'script', 'js', 'watch', 'browser-sync']);
+gulp.task('default', ['html', 'styles', 'script', 'js', 'fonts', 'images', 'watch', 'browser-sync']);
