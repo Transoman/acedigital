@@ -1,0 +1,27 @@
+.phone
+  display: flex
+  align-items: center
+  &__right
+    margin-left: 20px
+    text-align: right
+  &__icon
+    display: flex
+    justify-content: center
+    align-items: center
+    +size(36px)
+    background-image: linear-gradient(90deg, $saffron, $red)
+    border-radius: 50%
+    box-shadow: 0 0 30px rgba($saffron, 0.5)
+    color: rgba(#fff, 0.8)
+    .fas
+      transform: rotate(90deg)
+  &__link
+    font-size: 24px
+    font-weight: 600
+    color: #fff
+  &__descr
+    margin: 0
+    font-size: 11px
+    font-weight: 500
+    color: $selective-yellow
+    text-transform: uppercase

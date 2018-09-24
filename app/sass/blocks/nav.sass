@@ -1,35 +1,39 @@
-.nav-toggle
+.nav-list
   display: none
-  position: absolute
-  right: 0
-  top: 17px
-  width: 28px
-  height: 15px
-  padding: 0
+
+.nav-toggle
+  display: block
+  +size(40px)
+  padding: 11px 9px
   margin: 0
   outline: none
-  border: none
+  border: 1px solid rgba(#fff, 0.4)
+  border-radius: 3px
   background: none
   z-index: 101
   cursor: pointer
   +transition
+  &:hover
+    border-color: rgba(#fff, 0.7)
+    .nav-toggle__line
+      width: 100%
   &:focus
     outline: none
   &__line
     position: relative
     display: block
-    height: 2px
-    width: 100%
-    background: $accent
+    height: 1px
+    width: 15px
+    background-color: rgba(#fff, 0.7)
     +transition
     &::after, &::before
       content: ''
       position: absolute
       left: 0
       display: block
-      height: 2px
-      width: 100%
-      background: $accent
+      height: 1px
+      width: 20px
+      background-color: rgba(#fff, 0.7)
       +transition
     &::before
       top: -6px
