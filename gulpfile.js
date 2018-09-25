@@ -18,6 +18,7 @@ var gulp         = require('gulp'),
     // cheerio      = require('gulp-cheerio'),
     // browserify = require('browserify'),
     // source = require('vinyl-source-stream'),
+    gcmq         = require('gulp-group-css-media-queries'),
     browserSync  = require('browser-sync').create(); // Сервер
 
 // Static server
@@ -50,10 +51,11 @@ gulp.task('styles', function() {
         browsers: ['last 5 versions'],
         cascade: false
       }),
-      mqpacker({
-        // sort: true
-      })
+      // mqpacker({
+      //   sort: true
+      // })
     ]))
+  .pipe(gcmq())
   .pipe(gulp.dest('app/css'))
   .pipe(gp.csso({
     comments: false

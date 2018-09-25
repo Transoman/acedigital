@@ -20,6 +20,9 @@ a
 	&:hover
 		color: $accent
 
+section
+	padding: 60px 0
+
 /* Hidden element */
 .visually-hidden
 	position: absolute
@@ -72,3 +75,19 @@ a
 		background-color: #e5e5e5
 		cursor: not-allowed
 		color: #fff
+
+.section-title
+	margin-bottom: 45px
+	font-size: 40px
+	font-weight: 600
+	color: $stratos
+	text-align: center
+	line-height: 1.3
+
+@include media-breakpoint-down(md)
+	.section-title
+		font-size: 32px
+
+@include media-breakpoint-down(sm)
+	.section-title
+		font-size: 24px

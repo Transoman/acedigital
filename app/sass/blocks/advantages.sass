@@ -1,0 +1,69 @@
+.advantages
+  position: relative
+  overflow: hidden
+  &__item
+    position: relative
+    margin-bottom: 60px
+    padding-left: 90px
+    padding-top: 20px
+    h3
+      margin-bottom: 15px
+      font-size: 20px
+      font-weight: 600
+      line-height: 1.2
+      color: $stratos
+  &__icon
+    &--red
+      filter: drop-shadow(0 15px 40px rgba($razzmatazz, 0.5))
+    &--purple
+      filter: drop-shadow(0 15px 40px rgba($electric-violet, 0.5))
+    &--green
+      filter: drop-shadow(0 15px 40px rgba($caribbean-green, 0.5))
+    &--blue
+      filter: drop-shadow(0 15px 40px rgba($bright-turquoise, 0.5))
+    &--orange
+      filter: drop-shadow(0 15px 40px rgba($sunshade, 0.5))
+    &--dark-blue
+      filter: drop-shadow(0 15px 40px rgba($azure-radiance, 0.5))
+    &-wrap
+      position: absolute
+      left: -10px
+      top: 0
+  &__number
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
+    font-size: 24px
+    font-weight: 600
+    line-height: 1
+    color: #fff
+
+@include media-breakpoint-down(lg)
+  .advantages
+    &__item
+      padding-left: 70px
+      padding-top: 10px
+      h3
+        font-size: 18px
+    &__icon
+      +size(65px)
+
+@include media-breakpoint-down(sm)
+  .advantages
+    &__item
+      h3
+        br
+          display: none
+
+@include media-breakpoint-down(xs)
+  .advantages
+    &__item
+      margin-bottom: 35px
+      padding-left: 0
+      padding-top: 80px
+      text-align: center
+    &__icon
+      &-wrap
+        left: 50%
+        transform: translateX(-50%)
