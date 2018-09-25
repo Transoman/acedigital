@@ -1,0 +1,64 @@
+.clients
+  .container
+    padding: 0
+
+.clients-slider
+  padding: 60px 15px
+  // .swiper-wrapper
+  //   align-items: center
+  &__item
+    position: relative
+    height: 400px
+    top: 0
+    bottom: 0
+    border-radius: 10px
+    box-shadow: 0 5px 20px rgba($blue-charcoal, 0.1)
+    background-repeat: no-repeat
+    background-position: center top
+    background-size: cover
+    +transition
+    &::before
+      content: ''
+      position: absolute
+      top: 0
+      right: 0
+      bottom: -1px
+      left: 0
+      background-image: linear-gradient(to bottom, $jagger 0%, rgba(#fff, 0) 39%, rgba(#fff, 0) 64%, $jagger 100%)
+      opacity: 0
+      border-radius: 10px
+      +transition
+    &:hover
+      height: 480px
+      top: -40px
+      bottom: -40px
+      &::before
+        opacity: 1
+      .clients-slider
+        &__content
+          background: none
+          h3
+            color: #fff
+          p
+            color: $melrose
+
+  &__content
+    position: absolute
+    bottom: -1px
+    left: 0
+    right: 0
+    padding: 30px
+    background-color: #fff
+    z-index: 1
+    border-radius: 0 0 10px 10px
+    +transition
+    h3
+      margin-bottom: 10px
+      font-size: 18px
+      font-weight: 600
+      line-height: 1.3
+      color: $stratos
+      +transition
+    p
+      margin: 0
+      +transition
