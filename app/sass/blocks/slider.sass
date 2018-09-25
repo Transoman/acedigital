@@ -1,0 +1,23 @@
+.swiper-button-prev,
+.swiper-button-next
+  +size(32px)
+  border-radius: 50%
+  background: #fff
+  box-shadow: 0 5px 10px rgba($cobalt, 0.1)
+  +transition
+  text-align: center
+  .fas
+    font-size: 16px
+    color: $cobalt
+    line-height: 32px
+  &:hover
+    background-color: $cobalt
+    .fas
+      color: #fff
+
+.swiper-button-next
+  right: 25px
+  padding-left: 2px
+
+.swiper-button-prev
+  left: 25px
