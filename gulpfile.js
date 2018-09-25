@@ -81,7 +81,8 @@ gulp.task('script', function() {
       'node_modules/jquery-validation/dist/jquery.validate.min.js',
       'node_modules/swiper/dist/js/swiper.min.js',
       'node_modules/jscrollpane/script/jquery.mousewheel.js',
-      'node_modules/jscrollpane/script/jquery.jscrollpane.min.js'
+      'node_modules/jscrollpane/script/jquery.jscrollpane.min.js',
+      'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js'
     ])
   .pipe(gp.concat('script.js'))
   // .pipe(gp.uglify())
@@ -121,11 +122,11 @@ gulp.task('svg', function() {
   .pipe(gp.svgSprite({
     mode: {
       symbol: {
-        sprite: "symbols.html"
+        sprite: "../symbols.html"
       }
     }
   }))
-  .pipe(gulp.dest('app/templates'));
+  .pipe(gulp.dest('build/img/icon/'));
 });
 
 // gulp.task('symbols', function() {

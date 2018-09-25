@@ -41,6 +41,32 @@ jQuery(document).ready(function($) {
     }
   });
 
+  var testimonialsSlider = new Swiper ('.testimonial-slider', {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    pagination: {
+      el: '.swiper-pagination',
+    },
+    // navigation: {
+    //   nextEl: '.swiper-button-next',
+    //   prevEl: '.swiper-button-prev',
+    // },
+    breakpoints: {
+      1200: {
+        slidesPerView: 3,
+        spaceBetween: 30
+      },
+      992: {
+        slidesPerView: 2,
+        spaceBetween: 30
+      },
+      767: {
+        slidesPerView: 1,
+        spaceBetween: 30
+      }
+    }
+  });
+
   $(window).resize(function() {
     var api = $('.client-modal__content').data('jsp');
     api.reinitialise();
