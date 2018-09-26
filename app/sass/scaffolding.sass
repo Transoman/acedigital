@@ -73,7 +73,7 @@ section
     +size(40px)
     background-image: linear-gradient($red-ribbon2, $radical-red)
     border-radius: 50%
-    vertical-align: middle
+    // vertical-align: middle
     line-height: 40px
     text-align: center
   &:hover
@@ -87,6 +87,20 @@ section
     background-color: #e5e5e5
     cursor: not-allowed
     color: #fff
+  &--trans
+    background: none
+    box-shadow: none
+    color: $cobalt
+    border: 1px solid $cobalt
+    .fas
+      background: none
+      border: 1px solid $cobalt
+    &:hover
+      background: $cobalt
+      .fas
+        border-color: #fff
+    &:focus
+      background: darken($cobalt, 5%)
 
 .section-title
   margin-bottom: 45px

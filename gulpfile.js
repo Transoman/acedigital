@@ -1,5 +1,6 @@
 var gulp         = require('gulp'),
     gp           = require('gulp-load-plugins')(),
+    uglifyEs = require('gulp-uglify-es').default,
     // sass         = require('gulp-sass'), // Sass компілятор в css
     // sourcemaps   = require('gulp-sourcemaps'),
     // concat       = require('gulp-concat'), // З'єднує (конкатенує) файли
@@ -68,7 +69,7 @@ gulp.task('styles', function() {
 gulp.task('js', function() {
   return gulp.src('app/js/common.js')
   .pipe(gp.plumber())
-  .pipe(gp.uglify())
+  .pipe(uglifyEs())
   .pipe(gp.rename({suffix: '.min'}))
   .pipe(gulp.dest('build/js'))
   .pipe(browserSync.stream());

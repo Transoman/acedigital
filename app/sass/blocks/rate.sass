@@ -1,0 +1,60 @@
+.rate
+  padding-top: 0
+  &__item
+    border: 2px solid $link-water
+    border-radius: 10px
+    box-shadow: 0 0 30px rgba(#000, 0.08)
+    &--accent
+      border: none
+      box-shadow: 0 30px 50px rgba($blue-charcoal, 0.1)
+      .rate
+        &__title
+          color: $accent
+        &__price
+          color: $accent
+          &-wrap
+            background-color: $chablis
+        &__content
+          .list
+            li
+              &::before
+                color: $accent
+    .btn
+      padding-left: 30px
+      padding-right: 10px
+      font-size: 12px
+      .fas
+        +size(30px)
+        margin-left: 20px
+        line-height: 30px
+  &__content
+    padding: 35px 20px 35px 30px
+    .list
+      margin-bottom: 0
+      li
+        &::before
+          color: $cobalt
+  &__title
+    margin-bottom: 25px
+    font-size: 24px
+    font-weight: 600
+    color: $stratos
+  &__price
+    margin: 0
+    font-size: 14px
+    font-weight: 600
+    color: $cobalt
+    text-transform: uppercase
+    strong
+      font-size: 36px
+      font-weight: 500
+      color: $stratos
+      line-height: 1
+      text-transform: none
+    &-wrap
+      padding: 20px
+      background-color: $link-water
+      text-align: center
+  &__bottom
+    padding: 40px 20px 50px
+    text-align: center
