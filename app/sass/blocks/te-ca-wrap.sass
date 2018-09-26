@@ -1,6 +1,7 @@
 .te-ca-wrap
   position: relative
   background: url('../img/te-ca-bg.jpg') no-repeat center / cover //url('../img/star-bg.png') no-repeat center, radial-gradient(#0149bf, #331062)
+  overflow: hidden
   &::before
     content: ''
     position: absolute
@@ -10,15 +11,25 @@
     height: 200px
     width: 100%
     background: url('../img/shape-1.svg') no-repeat center / cover
+  &::after
+    content: ''
+    position: absolute
+    bottom: -1px
+    left: 0
+    right: 0
+    height: 200px
+    width: 100%
+    transform: rotate(180deg)
+    background: url('../img/shape-1.svg') no-repeat center / cover
   .parallax
     z-index: 1
 
 @include media-breakpoint-down(lg)
   .te-ca-wrap
-    &::before
+    &::before, &::after
       height: 150px
 
 @include media-breakpoint-down(xs)
   .te-ca-wrap
-    &::before
+    &::before, &::after
       height: 70px
