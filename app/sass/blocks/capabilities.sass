@@ -29,6 +29,15 @@
     transform: translate(-50%, -50%)
     fill: #fff
     +size(40px)
+  &__bg
+    &--red
+      filter: drop-shadow(0 15px 40px rgba($razzmatazz, 0.5))
+    &--purpule
+      filter: drop-shadow(0 15px 40px rgba($electric-violet, 0.5))
+    &--green
+      filter: drop-shadow(0 15px 40px rgba($caribbean-green, 0.5))
+    &--orange
+      filter: drop-shadow(0 15px 40px rgba($sunshade, 0.5))
 
 @include media-breakpoint-down(sm)
   .capabilities
