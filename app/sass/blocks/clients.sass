@@ -1,5 +1,7 @@
 .clients
   position: relative
+  padding-bottom: 120px
+  z-index: 1
   .container
     padding: 0
   .section-title
@@ -67,3 +69,13 @@
       margin: 0
       color: $main-color
       +transition
+
+
+@include media-breakpoint-down(lg)
+  .clients
+    padding-bottom: 60px
+
+@include media-breakpoint-down(xs)
+  .clients
+    .section-title
+      margin-bottom: 40px

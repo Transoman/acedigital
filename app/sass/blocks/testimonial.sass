@@ -1,24 +1,99 @@
 .testimonial
-  padding-top: 310px
+  position: relative
+  padding-top: 325px
   color: #fff
+  z-index: 2
   .section-title
+    position: absolute
+    top: 350px
     color: #fff
     text-align: left
 
 .testimonial-slider
   &__item
     display: flex
+    justify-content: space-between
+    align-items: flex-start
   &__img
     flex-shrink: 0
+    margin-right: 60px
+    border: 5px solid $cupid
+    border-radius: 10px
+    box-shadow: 0 30px 60px rgba($blue-charcoal, 0.25)
+    img
+      border-radius: 5px
   &__text
     position: relative
+    max-width: 600px
+    margin: 0
+    margin-right: 100px
+    padding-top: 170px
     padding-left: 70px
+    padding-bottom: 30px
     font-size: 16px
+    line-height: 1.875
     &::before
       content: ''
       position: absolute
-      top: 0
+      top: 175px
       left: 0
       +size(40px, 35px)
       background: url('../img/icon/icon-quote.svg') no-repeat center
       fill: currentColor
+    p
+      &:last-child
+        margin-bottom: 0
+
+@include media-breakpoint-down(lg)
+  .testimonial-slider
+    &__text
+      margin-right: 50px
+
+@include media-breakpoint-down(md)
+  .testimonial
+    padding-top: 235px
+    .section-title
+      top: 280px
+
+  .testimonial-slider
+    &__item
+      align-items: center
+    &__img
+      flex-shrink: 1
+
+@include media-breakpoint-down(sm)
+  .testimonial
+    .section-title
+      position: static
+      top: auto
+      text-align: center
+
+  .testimonial-slider
+    padding-bottom: 30px
+    &__item
+      flex-direction: column
+    &__text
+      padding-top: 0
+      margin-right: 0
+      padding-left: 60px
+      font-size: 14px
+      &::before
+        top: 5px
+    &__img
+      max-width: 250px
+      margin: 0
+    .swiper-pagination
+      text-align: center
+      padding: 0
+      bottom: 0
+
+@include media-breakpoint-down(xs)
+  .testimonial
+    padding-top: 130px
+
+  .testimonial-slider
+    &__text
+      padding-left: 40px
+      line-height: 1.6
+      &::before
+        +size(25px)

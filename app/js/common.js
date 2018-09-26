@@ -46,24 +46,7 @@ jQuery(document).ready(function($) {
     spaceBetween: 30,
     pagination: {
       el: '.swiper-pagination',
-    },
-    // navigation: {
-    //   nextEl: '.swiper-button-next',
-    //   prevEl: '.swiper-button-prev',
-    // },
-    breakpoints: {
-      1200: {
-        slidesPerView: 3,
-        spaceBetween: 30
-      },
-      992: {
-        slidesPerView: 2,
-        spaceBetween: 30
-      },
-      767: {
-        slidesPerView: 1,
-        spaceBetween: 30
-      }
+      clickable: true
     }
   });
 
