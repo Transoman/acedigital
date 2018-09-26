@@ -1,5 +1,7 @@
 .rate
-  padding-top: 0
+  position: relative
+  padding-top: 15px
+  z-index: 1
   &__item
     border: 2px solid $link-water
     border-radius: 10px
@@ -28,10 +30,13 @@
         margin-left: 20px
         line-height: 30px
   &__content
-    padding: 35px 20px 35px 30px
+    padding: 35px 15px 35px 30px
     .list
       margin-bottom: 0
       li
+        margin-bottom: 16px
+        &:last-child
+          margin-bottom: 0
         &::before
           color: $cobalt
   &__title
@@ -39,6 +44,7 @@
     font-size: 24px
     font-weight: 600
     color: $stratos
+    text-align: center
   &__price
     margin: 0
     font-size: 14px
@@ -56,5 +62,28 @@
       background-color: $link-water
       text-align: center
   &__bottom
-    padding: 40px 20px 50px
+    padding: 35px 20px 50px
     text-align: center
+
+@include media-breakpoint-down(md)
+  .rate
+    &__list
+      padding: 20px 15px
+    &__item
+      &--accent
+        box-shadow: 0 0 30px rgba(#000, 0.08)
+
+@include media-breakpoint-down(xs)
+  .rate
+    &__content
+      padding: 20px
+    &__title
+      font-size: 18px
+      text-align: center
+    &__bottom
+      padding: 20px 10px
+    &__list
+      .swiper-button-next
+        right: 5px
+      .swiper-button-prev
+        left: 5px
