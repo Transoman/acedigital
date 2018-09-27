@@ -1,10 +1,28 @@
 jQuery(document).ready(function($) {
 
+  // Sticky header
+  var h = $('.header').innerHeight();
+
+  function stickyHeader() {
+    if($(this).scrollTop() > (h/2)) {
+      $('.header').addClass('sticky');
+    }
+    else {
+      $('.header').removeClass('sticky');
+    }
+  }
+
+  stickyHeader();
+
+  $(window).scroll(function() {
+    stickyHeader();
+  });
+
   // Toggle nav menu
   $('.nav-toggle').on('click', function (e) {
     e.preventDefault();
     $(this).toggleClass('active');
-    $('.header__nav').toggleClass('open');
+    $('.nav-list').toggleClass('open');
   });
 
   // Modal
@@ -19,6 +37,65 @@ jQuery(document).ready(function($) {
         var api = $('.client-modal__content').data('jsp');
         api.reinitialise();
       });
+    }
+  });
+
+  $('input[name="phone"]').mask('+7 (000) 000-00-00');
+
+  // Parallax
+  $('html').mousemove(function(e){
+      
+      var wx = $(window).width();
+      var wy = $(window).height();
+
+      var x = e.pageX - this.offsetLeft;
+      var y = e.pageY - this.offsetTop;
+
+      var newx = x - wx/2;
+      var newy = y - wy/2;
+
+      $('img[class*="meteor"]').each(function(){
+          var speed = 0.03;
+          if($(this).attr('data-revert')) speed *= -1;
+          TweenMax.to($(this), 1, {x: (1 - newx*speed), y: (1 - newy*speed)});
+          
+      });
+      
+  });
+
+  $(window).scroll(function(event) {
+    var wScroll = $(this).scrollTop();
+
+    $('.rock-1').css({'transform': 'translate(0px, ' + wScroll /15 + '%)'});
+    $('.rock-2').css({'transform': 'translate(0px, ' + wScroll /20 + '%)'});
+    $('.rock-3').css({'transform': 'translate(0px, ' + wScroll /100 + '%)'});
+    $('.rock-4').css({'transform': 'translate(0px, ' + wScroll /100 + '%)'});
+    $('.planet-1').css({'transform': 'translate(0px, -' + wScroll /10 + '%)'});
+    $('.moon-1').css({'transform': 'translate(0px, -' + wScroll /30 + '%)'});
+  });
+
+  $('a[href*="#"]')
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+    if (
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+      && 
+      location.hostname == this.hostname
+    ) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      if (target.length) {
+        event.preventDefault();
+        $('.nav-toggle').removeClass('active');
+        $('.nav-list').removeClass('open');
+        var hOffset =  $('.header').outerHeight();
+        console.log(hOffset);
+        $('html, body').animate({
+          scrollTop: target.offset().top - hOffset
+        }, 500, function() {
+        });
+      }
     }
   });
 
@@ -101,5 +178,65 @@ jQuery(document).ready(function($) {
   breakpoint.addListener(breakpointChecker);
   // kickstart
   breakpointChecker();
+
+  /* Валидация телефона */
+  jQuery.validator.addMethod("phoneno", function(phone_number, element) {
+     return this.optional(element) || phone_number.match(/\+[0-9]{1}\s\([0-9]{3}\)\s[0-9]{3}-[0-9]{2}-[0-9]{2}/);
+  }, "Введите Ваш телефон");
+
+  /* Валидация формы */
+  $(".customer-form").validate({
+    messages: {
+      name: "Введите Ваше имя",
+      phone: "Введите Ваш телефон",
+      email: "Введите Ваш e-mail",
+      term: "Это поле обязательное",
+    },
+    rules: {
+      "phone": {
+        required: true,
+        phoneno: true
+      }
+    },
+    submitHandler: function(form) {
+      var t = $('.customer-form').serialize();
+      ajaxSend('.customer-form', t);
+    }
+  });
+
+  $(".form-project__form").validate({
+    messages: {
+      name: "Введите Ваше имя",
+      phone: "Введите Ваш телефон",
+      email: "Введите Ваш e-mail",
+      term: "Это поле обязательное",
+    },
+    rules: {
+      "phone": {
+        required: true,
+        phoneno: true
+      }
+    },
+    submitHandler: function(form) {
+      var t = $('.form-project__form').serialize();
+      ajaxSend('.form-project__form', t);
+    }
+  });
+
+  /* Функцыя для отправки формы */
+  function ajaxSend(formName, data) {
+    jQuery.ajax({
+      type: "POST",
+      url: "sendmail.php",
+      data: data,
+      success: function() {
+        $(".modal").popup("hide");
+        $("#thanks").popup("show");
+        setTimeout(function() {
+          $(formName).trigger('reset');
+        }, 2000);
+      }
+    });
+  }
 
 });

@@ -12,7 +12,7 @@ var gulp         = require('gulp'),
     // imagemin     = require('gulp-imagemin'),
     // svgstore     = require('gulp-svgstore'),
     // svgmin       = require('gulp-svgmin'),
-    // del          = require('del'), // Видаляє папки, файли
+    del          = require('del'), // Видаляє папки, файли
     // run          = require('run-sequence'), // Запускає послідовно задачі
     // plumber      = require('gulp-plumber'), // Відслідковування і вивід в консоль помилок
     // notify       = require("gulp-notify"), // Вивід повідомлення про помилку
@@ -34,7 +34,7 @@ gulp.task('browser-sync', function() {
 });
 
 gulp.task('html', function() {
-  gulp.src('app/*.html')
+  gulp.src('app/*.{html,php}')
     .pipe(gp.rigger())
     .pipe(gulp.dest('build'))
     .pipe(browserSync.stream());
@@ -80,6 +80,7 @@ gulp.task('script', function() {
       'node_modules/jquery/dist/jquery.min.js',
       'node_modules/jquery-popup-overlay/jquery.popupoverlay.js',
       'node_modules/jquery-validation/dist/jquery.validate.min.js',
+      'node_modules/jquery-mask-plugin/dist/jquery.mask.min.js',
       'node_modules/swiper/dist/js/swiper.min.js',
       'node_modules/jscrollpane/script/jquery.mousewheel.js',
       'node_modules/jscrollpane/script/jquery.jscrollpane.min.js',
@@ -102,6 +103,12 @@ gulp.task('images', function() {
     //  imagemin.jpegtran({progressive: true})
     // ]))
     .pipe(gulp.dest('build/img'))
+});
+
+gulp.task('bat', function() {
+  gulp.src('app/bat/**/*')
+    .pipe(gulp.dest('build/bat'))
+    .pipe(browserSync.stream());
 });
 
 gulp.task('svg', function() {
@@ -153,9 +160,10 @@ gulp.task('svg', function() {
 
 gulp.task('watch', function() {
   gulp.watch('app/sass/**/*.sass', ['styles']);
-  gulp.watch('app/**/*.html', ['html']);
+  gulp.watch('app/**/*.{html,php}', ['html']);
   gulp.watch('app/fonts/**/*', ['fonts']);
   gulp.watch('app/img/**/*', ['images']);
+  gulp.watch('app/bat/**/*', ['bat']);
   gulp.watch('app/js/common.js', ['js']);
 });
 
@@ -165,6 +173,9 @@ gulp.task('clean', function() {
   return del.sync('dist');
 });
 
+gulp.task('clean:img', function() {
+  return del.sync('build/img');
+});
 
 gulp.task('build', ['clean', 'styles', 'svg'], function(){
   gulp.src(['app/css/style.min.css'])
@@ -184,4 +195,4 @@ gulp.task('build', ['clean', 'styles', 'svg'], function(){
 });
 
 
-gulp.task('default', ['html', 'styles', 'script', 'js', 'fonts', 'images', 'watch', 'browser-sync']);
+gulp.task('default', ['html', 'styles', 'script', 'js', 'fonts', 'images', 'bat', 'watch', 'browser-sync']);

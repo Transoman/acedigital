@@ -1,5 +1,32 @@
 .nav-list
   display: none
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  margin: 0
+  padding: 0
+  list-style: none
+  text-align: center
+  background: $stratos
+  +transition
+  animation: menuOpen 0.3s linear
+  li
+    margin-bottom: 10px
+    &:last-child
+      margin-bottom: 0
+  a
+    font-size: 16px
+    color: rgba(#fff, 0.5)
+    +transition
+    &:hover
+      color: rgba(#fff, 1)
+  &.open
+    display: flex
 
 .nav-toggle
   display: block
@@ -48,3 +75,11 @@
       &::before
         top: 0
         transform: rotate(-45deg)
+
+@keyframes menuOpen
+  0%
+    opacity: 0
+    visibility: hidden
+  100%
+    opacity: 1
+    visibility: visible

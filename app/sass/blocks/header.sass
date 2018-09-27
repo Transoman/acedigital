@@ -4,6 +4,12 @@
   left: 0
   right: 0
   padding: 35px 0 10px
+  +transition
+  z-index: 10
+  &.sticky
+    padding: 10px 0
+    background: radial-gradient($cobalt, $jagger)
+    box-shadow: 0 5px 20px rgba($blue-charcoal, 0.1)
   &__wrap
     display: flex
     align-items: center
