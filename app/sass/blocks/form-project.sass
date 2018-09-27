@@ -1,8 +1,9 @@
 .form-project
-  padding-top: 325px
-  padding-bottom: 320px
+  padding-top: 340px
+  padding-bottom: 110px
   color: #fff
   .section-title
+    margin-bottom: 40px
     color: #fff
     text-align: left
   &__form
@@ -31,6 +32,7 @@
 
 @include media-breakpoint-down(md)
   .form-project
+    padding-top: 235px
     .section-title
       text-align: center
     &__row
@@ -43,6 +45,7 @@
 
 @include media-breakpoint-down(sm)
   .form-project
+    padding-bottom: 40px
     &__row
       flex-direction: column
       align-items: flex-start
@@ -51,8 +54,9 @@
     .form-group--btn
       text-align: center
       margin-top: 20px
-
-@include media-breakpoint-down(sm)
-  .form-project
     .btn
       font-size: 12px
+
+@include media-breakpoint-down(xs)
+  .form-project
+    padding-top: 130px

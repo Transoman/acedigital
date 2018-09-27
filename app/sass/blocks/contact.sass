@@ -1,0 +1,71 @@
+.contact
+  position: relative
+  padding-bottom: 225px
+  color: #fff
+  .container
+    position: relative
+  .section-title
+    color: #fff
+    text-align: left
+  &__content
+    position: relative
+    max-width: 420px
+    z-index: 1
+  &__row
+    margin-bottom: 20px
+    font-size: 20px
+    strong
+      font-weight: 600
+    a
+      color: #fff
+      &:hover, &:focus
+        color: $accent
+    &--social
+      display: flex
+      align-items: center
+      .social
+        margin-left: 20px
+  &__map
+    position: absolute
+    right: -200px
+    bottom: -550px
+    +size(900px)
+
+#map
+  +size(100%)
+  border-radius: 50%
+
+@include media-breakpoint-down(lg)
+  .contact
+    &__map
+      bottom: -390px
+      +size(750px)
+
+@include media-breakpoint-down(sm)
+  .contact
+    .section-title
+      text-align: center
+    &__content
+      max-width: none
+    &__map
+      position: static
+      width: 100%
+      height: 400px
+
+  #map
+    border-radius: 0
+
+@include media-breakpoint-down(xs)
+  .contact
+    padding-bottom: 140px
+    &__map
+      height: 300px
+    &__row
+      font-size: 18px
+      flex-wrap: wrap
+      br
+        display: none
+      &--social
+        flex-direction: column
+      .social
+        margin-left: 0

@@ -23,6 +23,10 @@
     background: url('../img/shape-1.svg') no-repeat center / cover
   .parallax
     z-index: 1
+  &--2
+    &::after
+      height: 140px
+      background-position: center bottom
 
 @include media-breakpoint-down(lg)
   .te-ca-wrap

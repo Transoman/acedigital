@@ -1,3 +1,29 @@
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__wrap">
+        <div class="logo footer__logo">
+          <img src="img/logo.png" width="170" height="47" alt="Ace Digital">
+        </div>
+
+          <p class="footer__descr">SEO продвижение <br>Контекстная реклама</p>
+
+          <p class="copyright">&copy; AceDigital, 2018</p>
+
+          <div class="phone footer__phone">
+            <div class="phone__left">
+              <div class="phone__icon"><i class="fas fa-phone"></i></div>
+            </div>
+            <div class="phone__right">
+              <a href="tel:+74956942429" class="phone__link">+7 (495) 694 24 29</a>
+              <p class="phone__descr">бесплатная консультация</p>
+            </div>
+          </div>
+      </div>
+    </div>
+    <!-- /.container -->
+  </footer>
+  <!-- /.footer -->
+
     <div id="callback" class="modal">
       <button class="callback_close modal__close">
         Close
@@ -98,5 +124,20 @@
     <link rel="stylesheet" href="css/style.min.css">
     <script src="js/script.js"></script>
     <script src="js/common.min.js"></script>
+    <script>
+      function initMap() {
+        var uluru = {lat: 55.77209088055856, lng: 37.61988281621765};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 14,
+          center: uluru,
+          styles: [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"color":"#a8afbf"}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#373d48"},{"weight":2},{"gamma":"1"}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry","stylers":[{"weight":0.6},{"color":"#4c576f"},{"gamma":"0"}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#424c65"},{"gamma":"1"},{"weight":"10"}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#4c576f"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#424d66"}]},{"featureType":"road","elementType":"geometry","stylers":[{"color":"#37425c"},{"lightness":"0"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#4c576f"}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#2b364f"}]}]
+        });
+        var marker = new google.maps.Marker({
+          position: {lat: 55.78, lng: 37.61988281621765},
+          map: map
+        });
+      }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmnk4RCDwjSucIJ2WXRnLkuCrsWR4DUM4&callback=initMap"></script>
   </body>
 </html>

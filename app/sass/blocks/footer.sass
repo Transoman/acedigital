@@ -1,0 +1,56 @@
+.footer
+  padding: 40px 0 50px
+  &__wrap
+    display: flex
+    align-items: center
+    justify-content: space-between
+  &__logo
+    flex-shrink: 0
+    margin-right: 30px
+  &__descr
+    margin: 0
+    padding-left: 30px
+    border-left: 1px solid $silver-chalice
+    font-size: 14px
+    font-weight: 300
+    color: $gray
+  &__phone
+    .phone
+      &__link
+        color: $stratos
+        &:hover, &:focus
+          color: $jagger
+      &__descr
+        color: $accent
+      &__icon
+        background-image: linear-gradient($red-ribbon, $accent)
+        box-shadow: 0 5px 25px rgba($accent, 0.4)
+
+.copyright
+  margin: 0 auto
+
+@include media-breakpoint-down(md)
+  .footer
+    padding-top: 0
+    padding-bottom: 30px
+    &__wrap
+      flex-direction: column
+      text-align: center
+    &__logo
+      margin: 0
+      margin-bottom: 20px
+    &__descr
+      border: 0
+      padding-left: 0
+      margin-bottom: 20px
+    &__phone
+      margin-bottom: 20px
+
+  .copyright
+    order: 1
+
+@include media-breakpoint-down(sm)
+  .footer
+    &__phone
+      .phone__right
+        text-align: center
