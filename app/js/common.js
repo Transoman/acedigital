@@ -143,7 +143,8 @@ jQuery(document).ready(function($) {
           $('.rate__list').removeClass('swiper-container').addClass('row');
           $('.rate__item').parent().unwrap('.swiper-wrapper');
           $('.rate__item').parent().removeClass('swiper-slide').addClass('col-lg-4');
-          $('.rate__list .swiper-pagination').remove();
+          $('.rate__list .swiper-button-prev').remove();
+          $('.rate__list .swiper-button-next').remove();
           rateSlider.destroy( true, true );
         }
         // or/and do nothing
