@@ -180,6 +180,11 @@ jQuery(document).ready(function($) {
   // kickstart
   breakpointChecker();
 
+  $('.form__file').change(function(event) {
+    var fileName = this.files[0].name;
+    $(this).next().find('span').text(fileName);
+  });
+
   /* Валидация телефона */
   jQuery.validator.addMethod("phoneno", function(phone_number, element) {
      return this.optional(element) || phone_number.match(/\+[0-9]{1}\s\([0-9]{3}\)\s[0-9]{3}-[0-9]{2}-[0-9]{2}/);
@@ -200,7 +205,8 @@ jQuery(document).ready(function($) {
       }
     },
     submitHandler: function(form) {
-      var t = $('.customer-form').serialize();
+      // var t = $('.customer-form').serialize();
+      var t = new FormData($('.customer-form').get(0));
       ajaxSend('.customer-form', t);
     }
   });
@@ -219,7 +225,8 @@ jQuery(document).ready(function($) {
       }
     },
     submitHandler: function(form) {
-      var t = $('.form-project__form').serialize();
+      // var t = $('.form-project__form').serialize();
+      var t = new FormData($('.form-project__form').get(0));
       ajaxSend('.form-project__form', t);
     }
   });
@@ -228,13 +235,16 @@ jQuery(document).ready(function($) {
   function ajaxSend(formName, data) {
     jQuery.ajax({
       type: "POST",
-      url: "sendmail.php",
+      url: "/wp-content/themes/acedigital/sendmail.php",
+      contentType: false,
+      processData: false,
       data: data,
       success: function() {
         $(".modal").popup("hide");
         $("#thanks").popup("show");
         setTimeout(function() {
           $(formName).trigger('reset');
+          $(formName).find('.form__label--file span').text('Прикрепить файл');
         }, 2000);
       }
     });
