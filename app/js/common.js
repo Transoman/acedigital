@@ -190,7 +190,11 @@ jQuery(document).ready(function($) {
      return this.optional(element) || phone_number.match(/\+[0-9]{1}\s\([0-9]{3}\)\s[0-9]{3}-[0-9]{2}-[0-9]{2}/);
   }, "Введите Ваш телефон");
 
-  /* Валидация формы */
+  $('.rate__item .customer_open').click(function() {
+    var title = $(this).parents('.rate__item').find('.rate__title').text();
+    $('.customer-form input[name="subject"]').val('Стать клиентом: ' + title);
+  });
+
   $(".customer-form").validate({
     messages: {
       name: "Введите Ваше имя",
@@ -205,7 +209,6 @@ jQuery(document).ready(function($) {
       }
     },
     submitHandler: function(form) {
-      // var t = $('.customer-form').serialize();
       var t = new FormData($('.customer-form').get(0));
       ajaxSend('.customer-form', t);
     }

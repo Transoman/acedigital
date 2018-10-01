@@ -146,9 +146,11 @@
     color: $stratos
   &__row
     display: flex
+    flex-wrap: wrap
+    align-items: center
     margin-bottom: 30px
     &:last-child
-      margin-botom: 0
+      margin-bottom: 0
   &__col
     padding: 30px 0
   &__progress
@@ -157,6 +159,7 @@
     padding: 0 25px
   &__post
     margin-right: 30px
+    margin-bottom: 15px
     border-radius: 5px
     border: 2px solid $link-water
     &:last-child
