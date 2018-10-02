@@ -18,6 +18,8 @@ jQuery(document).ready(function($) {
     stickyHeader();
   });
 
+  $('.clients-slider__content').matchHeight();
+
   // Toggle nav menu
   $('.nav-toggle').on('click', function (e) {
     e.preventDefault();

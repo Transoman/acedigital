@@ -2630,6 +2630,10 @@ jquery-mask-plugin@^1.14.15:
   version "1.14.15"
   resolved "https://registry.yarnpkg.com/jquery-mask-plugin/-/jquery-mask-plugin-1.14.15.tgz#9daabb41024383cba2a793bacfa46ef8f87273a5"
 
+jquery-match-height@^0.7.2:
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/jquery-match-height/-/jquery-match-height-0.7.2.tgz#f8d9f3ba5314daab109cf07408674be204be5f0e"
+
 jquery-popup-overlay@^1.7.4:
   version "1.7.4"
   resolved "https://registry.yarnpkg.com/jquery-popup-overlay/-/jquery-popup-overlay-1.7.4.tgz#0474750902689d40fb3f6759298622878b42c5b6"
