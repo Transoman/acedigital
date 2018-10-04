@@ -18,6 +18,12 @@
     &--textarea
       height: 35px
       min-height: 35px
+      resize: none
+      +transition(0.5s)
+      overflow: hidden
+      &:focus
+        height: 200px
+        overflow: visible
   &__checkbox
     @extend .visually-hidden
     &:checked ~ label::after
